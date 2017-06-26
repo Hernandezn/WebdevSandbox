@@ -112,28 +112,36 @@
 			}
 
 			@keyframes crawl{
-				from{
+				0%{
 					margin-left: 0px;
 				}
-				to{
+				50%{
 					margin-left: 300px;
+				}
+				100%{
+					margin-left: 0px;
 				}
 			}/* only for IE10+ */
 
 			#crawler{
 				animation-name: crawl;
 				animation-duration: 25s;
+				animation-iteration-count: infinite;
 
 				-webkit-animation-name: crawl;
 				-webkit-animation-duration: 25s;
+				-webkit-animation-iteration-count: infinite;
 			}
 
 			@-webkit-keyframes crawl{
-				from{
+				0%{
 					margin-left: 0px;
 				}
-				to{
+				50%{
 					margin-left: 300px;
+				}
+				100%{
+					margin-left: 0px;
 				}
 			}/* for chrome & firefox */
 
@@ -207,7 +215,7 @@
 
 			<p id="color-slider">This message changes colors.</p>
 
-			<p id="crawler">This text is crawling away using only CSS.</p>
+			<p id="crawler">This text is crawling and has a hover-over effect, both using only CSS.</p>
 		</div>
 
 
