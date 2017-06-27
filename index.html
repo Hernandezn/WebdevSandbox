@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="sandbox.ico">
+		<meta charset="utf-8">
+		<title>Webdev Sandbox</title>
+		<style>
+			body{
+				background-image: url(bg.png);
+				background-attachment: fixed;
+				background-position: center;
+			}
+
+			#header{
+				background-color: black;
+				color: red;
+				text-align: center;
+				font-family: monospace;
+				font-size: 5em;
+				left: 0px;
+				right: 0px;
+			}
+
+			#header:hover{
+				background-color: #222222;
+			}
+
+			.line{
+				background-color: #ffffff;
+				width: 99%;
+				height: 1px;
+				margin: 10px;
+			}
+
+			.box{
+				background-color: gold;
+				color: black;
+				width: 70%;
+				margin: auto;
+				border: dashed;
+				border-width: 2px;
+				padding: 5px;
+				margin-bottom: 10px;
+			}
+
+			#sidebar{
+				width: 10%;
+				padding: 10px;
+				position: absolute;
+				right: 10px;
+				top: 175px;
+				z-index: 1;
+			}
+			.box#sidebar:hover{
+				background-color: #fff000;
+			}
+
+			#bottom{
+				bottom: 0px;
+				background-color: #222222;
+				color: #ff00ff;
+				height: 500px;
+				font-style: italic;
+				text-align: center;
+				padding-top: 5px;
+				font-size: 1.1em;
+			}
+
+			a.in-link:visited{
+				color: blue;
+			}
+
+			a[href*="dog"]{/* for all a hrefs containing "dog" */
+				color: red;
+			}
+
+			.js-class-style{
+				background-color: purple;
+				color: yellow;
+				font-family: sans-serif;
+				padding: 2px;
+			}
+
+			#panel{
+				background-color: gold;
+				position: fixed;
+				bottom: -170px;
+				right: 0px;
+				height: 205px;
+				width: 300px;
+				border-width: 5px 0px 0px 5px;
+				border-style: solid;
+			}
+
+			#opener{
+				padding-top: 9px;
+				font-family: monospace;
+				text-align: center;
+				font-size: 1.2em;
+				margin-bottom: 9px
+			}
+
+			.pressed-brush{
+				background-color: black;
+				width: 5px;
+				height: 5px;
+				border-radius: 50%;
+				position: absolute;
+				z-index: 11;
+			}
+
+			@keyframes crawl{
+				0%{
+					margin-left: 0px;
+				}
+				50%{
+					margin-left: 300px;
+				}
+				100%{
+					margin-left: 0px;
+				}
+			}/* only for IE10+ */
+
+			#crawler{
+				height: 1em;
+
+				animation-name: crawl;
+				animation-duration: 25s;
+				animation-iteration-count: infinite;
+
+				-webkit-animation-name: crawl;
+				-webkit-animation-duration: 25s;
+				-webkit-animation-iteration-count: infinite;
+
+				transition: 2s;
+				-webkit-transition: 2s;
+			}
+
+			@-webkit-keyframes crawl{
+				0%{
+					margin-left: 0px;
+				}
+				50%{
+					margin-left: 50%;
+				}
+				100%{
+					margin-left: 0px;
+				}
+			}/* for chrome & firefox */
+
+			#crawler:hover{
+				color: lime;
+			}
+
+			.sandbox{
+				text-align: center;
+				height: 40px;
+				background-color: #00bb00;
+				display: table;
+				width: 100%;
+				border-top: 1px;
+				border-bottom: 1px;
+				border-style: solid;
+				border-left: 0px;
+				text-decoration: none;
+
+				transition: 500ms;
+				-webkit-transition: 500ms;
+			}
+			.sandbox:hover{
+				background-color: #ffdd00;
+			}
+
+			.sandbox-element{
+				display: table-cell;
+				vertical-align: middle;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="top" style="position:absolute; top:0px"></div>
+
+		<h1 id="header">The WebDev Sandbox</h1>
+
+		<div class="line"></div>
+
+		<div class="box">
+			<img src="buzz.png" alt="buzz" height="100" style="float:left; margin: 10px" id="buzz">
+				<p>Looks like I've got <code>HTML</code>, <code>CSS</code>, and <code>JavaScript</code> down pat terribly quickly, so this page is my first application of the three of them together via the <code>DOM</code>. <code>DOM</code> is the last thing I'll need to know to start some earnest front-end Web development.<br>
+				<br>
+				If I can make the most of this testing environment, I can move on to more advanced courses, followed by backend development. Maybe even do it professionally.</p>
+		</div>
+
+		<div class="box">
+			<h3>TIPS TO REMEMBER:</h3>
+			<ul>
+				<li>My JavaScript console shortcut is <strong>Ctrl + shift + J</strong>. Alternatively, use <strong>Ctrl + shift + I</strong> for the full developer console.</li>
+				<li>Finish that Khan course. It's why I made that sidebar at the top right.</li>
+				<li>Find out what it would take to get a Web development job. It seems to come naturally enough, but at my time of writing this, I've just gotten started.</li>
+				<li>Tentative professional path:
+					<ul>
+						<li>Learn enough Web development to work on freelance job postings and complete them by their stated deadlines.</li>
+						<li>Actually take on some freelance projects.</li>
+						<li>Put the sites I develop on LinkedIn.</li>
+						<li>Take remote work, if available.</li>
+						<li>Use the bought time to build engineering tools; people only want young Web developers because they don't command expensive experience, but people demand experienced engineers because hiring newbies can cost them more than they'd save.</li>
+					</ul>
+				</li>
+				<li>Visit Kong Development forums to see where they host their stuff.</li>
+			</ul>
+		</div>
+
+
+		<!--TEST LINES BOX-->
+
+		<div class="box" id="test-box">
+			<h3>Test lines</h3>
+			<p>This <span class="animal">dog</span> is a <span class="animal">dog</span> is a <span class="animal">dog</span> is a <span class="animal">dog</span> is a <span class="animal">dog</span>.</p>
+
+			<p><strong><span class="gold">Gold</span></strong>! A thumb of <span class="gold">gold</span>, a hand of <span class="gold">gold</span>, an entire soul... of <strong><span class="gold">gold</span></strong>! This <span class="gold">gold</span> is, indeed, a sight to behold! Always believe in your <span class="gold">gold</span>en soul, you've got the power to know, you're indestructible! Always believe in <span class="gold">gold</span>!</p>
+
+			<p><a href="https://en.wikipedia.org/wiki/Dog" target="_blank">This is a test link to the <span class="animal">dog</span> Wikipedia page.</a></p>
+
+			<p id="js-style-test">This line is my first test of JavaScript styling in lieu of CSS.</p>
+
+			<p id="js-class-style-test">This line is my second test of JavaScript styling, this time assigning a CSS class to this text.</p>
+
+			<p id="text-content-test">Ipsum lorem something something whatever.</p>
+
+			<div style="width: 100px; height: 100px; border-style: ridge; border-radius: 50%; border-width: 10px; background-color: lightblue; text-align: center; display: table"><span style="display: table-cell; vertical-align: middle">CSS circle</span>
+			</div>
+
+			<div id="whiteboard" style="background-color:white; height: 200px; width: 200px; margin-top: 5px; padding: 5px; position: relative; z-index: 10">Whiteboard</div>
+			<div id="cellophane" style="height: 200px; width: 200px; padding: 5px; position:absolute; background-color:lime; top: -210px"></div>
+
+			<p><a href="drip.wav" id="drip-sound">Play drip sound.</a></p>
+
+			<p>This window's initial size is <span id="win-width">???</span> by <span id="win-height">???</span> pixels, and its url is: <span id ="url">???</span></p>
+
+			<p id="self-destruct">This message will self-destruct in <strong><span id="num-seconds">20</span></strong> seconds</p>
+
+			<p id="color-slider">This message changes colors.</p>
+
+			<p id="crawler">This text is crawling and has a hover-over effect, both using only CSS.</p>
+		</div>
+
+
+
+		<div class="box" id="sidebar">
+			<p>Links:</p>
+			<ul>
+				<li><a href="https://www.google.com/" target="_blank">Google</a></li>
+				<li><a href="https://www.khanacademy.org/computing/computer-programming" target="_blank">Khan</a></li>
+				<li><a href="#bottom" class="in-link">Bottom</a></li>
+			</ul>
+		</div>
+
+		<footer id="bottom">
+			<p>This is here to give some scroll space to bring the reading bits to a comfortable elevation on the screen.</p>
+
+			<p>[<a href="#top" class="in-link">Back to Top</a>]</p>
+		</footer>
+
+		<div id="panel">
+			<div id="opener">Other Sandboxes</div>
+
+			<div style="background-color: black; height: 1px; width: 100%"></div>
+			<a href = "https://www.google.com/" class="sandbox">
+				<span class="sandbox-element">Sample 1</span>
+			</a>
+			<a href = "https://www.google.com/" class="sandbox">
+				<span class="sandbox-element">Sample 2</span>
+			</a>
+			<a href = "https://www.google.com/" class="sandbox">
+				<span class="sandbox-element">Sample 3</span>
+			</a>
+			<a href = "https://www.google.com/" class="sandbox">
+				<span class="sandbox-element">Sample 4</span>
+			</a>
+		</div>
+
+		<script>
+			// JavaScript
+			
+			//document.body.innerHTML = "This replaces the <body> contents.";
+
+			console.log("Console.log test");// shows up in the debug console
+
+			var headerElement = document.getElementById("header");
+			//console.log(headerElement);// the item with the header id
+
+			headerElement.innerHTML = "This is a DOM test!";
+
+			var dogs = document.getElementsByClassName("animal");
+			var animal = "zebra";
+			//console.log(dogs);// all animal-class items
+
+			for(var i=0; i<dogs.length; i++){
+				dogs[i].innerHTML = animal;
+			}
+
+			var h3s = document.getElementsByTagName("h3");
+			//console.log(h3s);// all h3-tagged items
+
+			for(var i=0; i<h3s.length; i++){
+				h3s[i].innerHTML = "This is a <em>JavaScript</em> test.";
+			}
+
+			var boldGold = document.querySelectorAll("strong .gold");
+			//console.log(boldGold);// all strong-tagged gold-class items
+
+			for(var i = 0; i < boldGold.length; i++){
+				boldGold[i].innerHTML = "GOOOOOOOOOOOOOOOOOAL";
+			} // querySelectorAll is suboptimal compared to others above
+
+			var buzz = document.getElementById("buzz");
+			//console.log(buzz);
+
+			buzz.src = "buzz2.png";// changes src attribute
+
+			var wikilinks = document.querySelectorAll("a[href*=\"Dog\"]");
+			//console.log(wikilinks);
+
+			for(var i = 0; i < wikilinks.length; i++){
+				wikilinks[i].href="https://en.wikipedia.org/wiki/"+animal;
+			}// changes href attribute
+
+			var styleTest = document.querySelector("#js-style-test");
+
+			styleTest.style.color = "lightgreen"; // assigns style attributes
+			styleTest.style.backgroundColor = "#2222ff";
+			styleTest.style.width = "30%";
+			styleTest.style.padding = "5px";
+			styleTest.style.textAlign = "center";
+
+			var classStyleTest = document.getElementById("js-class-style-test");
+
+			classStyleTest.className = "js-class-style"; // assigns class
+
+			var textContentTest = document.getElementById("text-content-test");
+			textContentTest.textContent = "<strong>This</strong> allows me to display <code>HTML</code> tags in my text without the Web site parsing it as <code>HTML</code>.";
+
+			var jsElement = document.createElement("p");
+			jsElement.innerHTML = "The text <em>here in this sentence</em> was entirely created by JavaScript.";
+			var testBox = document.getElementById("test-box");
+			testBox.appendChild(jsElement);
+
+			var textNode = document.createTextNode("This is a JavaScript text element, and it <strong>has</strong> no HTML parsing.");
+			var redElement = document.createElement("p");// <p></p>
+			redElement.style.color = "red";// <p style="color: red"></p>
+			redElement.appendChild(textNode);// <p style="color: red">text</p>
+			testBox.appendChild(redElement);// <div id="test-box"> ...^</div>
+
+			var board = document.getElementById("whiteboard");
+			var cellophane = document.getElementById("cellophane");
+
+			cellophane.style.top = board.getBoundingClientRect().top;
+			cellophane.style.left = board.getBoundingClientRect().left;
+
+			var mouseDraw = function(event){
+				console.log(event);
+				var cellY = cellophane.getBoundingClientRect().top;
+				var cellX = cellophane.getBoundingClientRect().left;
+				var pressedBrush = document.createElement("div");
+				pressedBrush.className = "pressed-brush";
+				pressedBrush.style.left = (event.clientX-cellX)+"px";
+				pressedBrush.style.top = (event.clientY-cellY)+"px";
+				cellophane.appendChild(pressedBrush);
+				//pressedBrush.removeEventListener("mousemove", mouseDraw);
+			}// whiteboard still needs work; responds badly to resizes
+			board.addEventListener("mousemove", mouseDraw);
+
+			var soundLink = document.getElementById("drip-sound");
+			var played = false;
+			var playSound = function(event){
+				event.preventDefault();
+
+				var audio = document.createElement("audio");
+				audio.src = soundLink.href;
+				audio.autoplay = true;
+
+				if(played)// keep audio tags from building up
+					document.body.removeChild(document.body.lastChild);
+				else
+					played = true;
+
+				console.log(audio.src);
+				document.body.appendChild(audio);
+			}
+			soundLink.addEventListener("click", playSound);
+
+			document.getElementById("win-height").textContent = window.outerHeight+"";
+			document.getElementById("win-width").textContent = window.outerWidth+"";
+			document.getElementById("url").textContent = "<"+window.location.href+">";
+
+			var timer = document.getElementById("num-seconds");
+			var selfDestructor = document.getElementById("self-destruct");
+			var countDown = function(){
+				var time = parseFloat(timer.textContent);
+				if(time > 0)
+					timer.textContent = time-1;
+				else{
+					window.clearInterval(interval);
+					selfDestructor.innerHTML = "<strong>BOOM!</strong> "
+					selfDestructor.appendChild(inputBox);
+					selfDestructor.appendChild(resetButton);
+				}
+			}
+			var interval = window.setInterval(countDown, 1000);// countdown call each 1000ms
+
+			var resetButton = document.createElement("button");
+			resetButton.textContent = "Reset";
+			var inputBox = document.createElement("input");
+			var resetTimer = function(){
+				var inputVal = inputBox.value;
+				inputBox.value = "";
+
+				if(!isNaN(parseFloat(inputVal)) && isFinite(inputVal)){// isNumeric
+					inputVal = Math.round(inputVal);
+					selfDestructor.innerHTML = "This message will self-destruct in <strong><span id=\"num-seconds\">"+inputVal+"</span></strong> seconds.";
+					timer = document.getElementById("num-seconds");
+					interval = window.setInterval(countDown, 1000);
+				}
+			}
+			resetButton.addEventListener("click", resetTimer);
+
+			var colorSlider = document.getElementById("color-slider");
+			colorSlider.style.color="rgb(0, 0, 0)";
+			var blueAmt = 0;
+			var startTime = new Date().getTime();
+			var colorSlide = function(){
+				colorSlider.style.color = "rgb(0, 0, "+blueAmt+")";
+				var currentTime = new Date().getTime();
+				var quotient = Math.floor((currentTime-startTime)/255);
+
+				if(quotient%2 === 0)
+					blueAmt = (currentTime-startTime)%255;
+				else
+					blueAmt = 255 - ((currentTime-startTime)%255);
+
+				window.requestAnimationFrame(colorSlide);
+				// will stop if a condition keeps this from being reached
+			};// this method only works on IE10+, chrome, and firefox
+			colorSlide();
+
+			var panel = document.getElementById("panel");
+			var opener = document.getElementById("opener");
+			var panelIsOpen = false;
+			var open = function(){
+				if(panelIsOpen){
+					panelClose();
+				}
+				else{
+					panelOpen();
+				}
+			}// callback; defines the function but doesn't call it
+			opener.addEventListener("click", open);
+
+			var panelBottomY = -170;
+			var panelOpen = function(){
+				panel.style.backgroundColor = "lime";
+				panelIsOpen = true;
+				openUp();
+			}
+			var openUp = function(){
+				panelBottomY += 3;
+				panel.style.bottom = panelBottomY+"px";
+
+				if(panelBottomY < 0)
+					requestAnimationFrame(openUp);
+				else{
+					panelBottomY = 0;
+					panel.style.bottom = panelBottomY+"px";
+				}
+			}
+
+			var panelClose = function(){
+				panel.style.backgroundColor = "gold";
+				panelIsOpen = false;
+				closeDown();
+			}
+			var closeDown = function(){
+				panelBottomY -= 3;
+				panel.style.bottom = panelBottomY+"px";
+
+				if(panelBottomY > -170)
+					requestAnimationFrame(closeDown);
+				else{
+					panelBottomY = -170;
+					panel.style.bottom = panelBottomY+"px";
+				}
+			}
+		</script>
+	</body>
+</html>
