@@ -10,6 +10,8 @@
 				background-image: url(bg.png);
 				background-attachment: fixed;
 				background-position: center;
+				margin: 0;
+				padding: 0;
 			}
 
 			#header{
@@ -18,8 +20,7 @@
 				text-align: center;
 				font-family: monospace;
 				font-size: 5em;
-				left: 0px;
-				right: 0px;
+				width: 100%;
 			}
 
 			#header:hover{
@@ -28,9 +29,9 @@
 
 			.line{
 				background-color: #ffffff;
-				width: 99%;
+				width: 100%;
 				height: 1px;
-				margin: 10px;
+				margin-bottom: 10px;
 			}
 
 			.box{
@@ -98,7 +99,7 @@
 				font-family: monospace;
 				text-align: center;
 				font-size: 1.2em;
-				margin-bottom: 9px
+				padding-bottom: 9px;
 			}
 
 			.pressed-brush{
@@ -164,6 +165,8 @@
 				border-style: solid;
 				border-left: 0px;
 				text-decoration: none;
+				color: black;
+				border-color: black;
 
 				transition: 500ms;
 				-webkit-transition: 500ms;
@@ -196,18 +199,20 @@
 			<h3>TIPS TO REMEMBER:</h3>
 			<ul>
 				<li>My JavaScript console shortcut is <strong>Ctrl + shift + J</strong>. Alternatively, use <strong>Ctrl + shift + I</strong> for the full developer console.</li>
-				<li>Finish that Khan course. It's why I made that sidebar at the top right.</li>
+				<li>Keeping the "other sandboxes" links under that bottom-right panel seems cumbersome when clicking back and forth. Future panels of this type <strong>should not</strong> be animated. However, this one will keep its animation, just as a demonstration. </li>
+				<li>I should finish those Khan courses. It's why I made that sidebar at the top right.</li>
 				<li>Find out what it would take to get a Web development job. It seems to come naturally enough, but at my time of writing this, I've just gotten started.</li>
 				<li>Tentative professional path:
 					<ul>
-						<li>Learn enough Web development to work on freelance job postings and complete them by their stated deadlines.</li>
-						<li>Actually take on some freelance projects.</li>
+						<li>Learn enough Web development to work on freelance job postings as exercises, until I can complete them fully, with quality, and before their stated deadlines.</li>
+						<li>Actually take on some freelance projects as the hired developer.</li>
 						<li>Put the sites I develop on LinkedIn.</li>
-						<li>Take remote work, if available.</li>
-						<li>Use the bought time to build engineering tools; people only want young Web developers because they don't command expensive experience, but people demand experienced engineers because hiring newbies can cost them more than they'd save.</li>
+						<li>Open up my resume to Web development alongside my engineering degree.</li>
 					</ul>
 				</li>
 				<li>Visit Kong Development forums to see where they host their stuff.</li>
+				<li>Develop some of the engineering Web tools that should've existed when I was completing my degree.</li>
+				<li><em>Be free.</em></li>
 			</ul>
 		</div>
 
@@ -266,8 +271,8 @@
 			<div id="opener">Other Sandboxes</div>
 
 			<div style="background-color: black; height: 1px; width: 100%"></div>
-			<a href = "https://www.google.com/" class="sandbox">
-				<span class="sandbox-element">Sample 1</span>
+			<a href = "sandboxes/libraries.html" class="sandbox">
+				<span class="sandbox-element">Using a Library</span>
 			</a>
 			<a href = "https://www.google.com/" class="sandbox">
 				<span class="sandbox-element">Sample 2</span>
