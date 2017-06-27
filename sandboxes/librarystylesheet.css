@@ -1,0 +1,50 @@
+body{
+	background-image: url(life_in_sombrero_galaxy.jpg);
+	background-size: 100%;
+	margin: 0;
+	color: pink;
+}
+
+.box{
+	background-color: #330000;
+}
+
+h1{
+	text-align: center;
+}
+
+img{
+	height: 300px;
+	margin: auto;
+}
+
+#return{
+	height: 40px;
+	width: 100px;
+	text-align: center;
+	margin: auto;
+	margin-top: 15px;
+	color: pink;
+	font-family: monospace;
+	font-size: 1.2em;
+	font-weight: bold;
+	display: table;
+	text-decoration: none;
+	transition: 750ms;
+}
+#return:hover{
+	background-color: gold;
+	color: black;
+}
+
+#return-text{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#description{
+	width: 65%;
+	padding: 5px;
+	margin: auto;
+	margin-top: 15px;
+}
